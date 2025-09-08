@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Website Builder",
-  description: "Build beautiful websites with our intuitive drag-and-drop builder",
+  description: "Build beautiful websites",
 };
 
 export default function RootLayout({
