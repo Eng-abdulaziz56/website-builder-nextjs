@@ -39,7 +39,7 @@ export default function ImportExport({ onExport, onImport, onClear, sectionsCoun
       const exportData = onExport(exportName.trim(), exportDescription.trim());
       const dataStr = JSON.stringify(exportData, null, 2);
       const dataBlob = new Blob([dataStr], { type: 'application/json' });
-      
+
       const url = URL.createObjectURL(dataBlob);
       const link = document.createElement('a');
       link.href = url;
@@ -67,7 +67,7 @@ export default function ImportExport({ onExport, onImport, onClear, sectionsCoun
         return;
       }
       setImportFile(file);
-      setImportData(''); 
+      setImportData('');
     }
   };
 
@@ -80,7 +80,7 @@ export default function ImportExport({ onExport, onImport, onClear, sectionsCoun
     const processImport = (data: string) => {
       try {
         const parsedData = JSON.parse(data) as WebsiteExport;
-        
+
         if (!parsedData.sections || !Array.isArray(parsedData.sections)) {
           throw new Error('Invalid website data format');
         }
@@ -129,13 +129,13 @@ export default function ImportExport({ onExport, onImport, onClear, sectionsCoun
             {sectionsCount === 0 ? 'Empty' : 'Active'}
           </Badge>
         </div>
-        
+
         <div className="flex gap-1">
           <Dialog open={isExportOpen} onOpenChange={setIsExportOpen}>
             <DialogTrigger asChild>
-              <Button 
-                variant="outline" 
-                size="sm" 
+              <Button
+                variant="outline"
+                size="sm"
                 disabled={sectionsCount === 0}
                 className="flex-1 disabled:opacity-50 disabled:cursor-not-allowed text-foreground"
               >
@@ -237,8 +237,8 @@ export default function ImportExport({ onExport, onImport, onClear, sectionsCoun
             </DialogContent>
           </Dialog>
 
-          <Button 
-            variant="destructive" 
+          <Button
+            variant="destructive"
             size="sm"
             className="bg-red-600 hover:bg-red-700 text-white"
             onClick={handleClear}
@@ -281,8 +281,8 @@ export default function ImportExport({ onExport, onImport, onClear, sectionsCoun
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             <Dialog open={isExportOpen} onOpenChange={setIsExportOpen}>
               <DialogTrigger asChild>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   disabled={sectionsCount === 0}
                   className="w-full disabled:opacity-50 disabled:cursor-not-allowed"
                 >
@@ -375,8 +375,8 @@ export default function ImportExport({ onExport, onImport, onClear, sectionsCoun
               </DialogContent>
             </Dialog>
 
-            <Button 
-              variant="destructive" 
+            <Button
+              variant="destructive"
               className="w-full bg-red-600 hover:bg-red-700 text-white"
               onClick={handleClear}
               disabled={sectionsCount === 0}
